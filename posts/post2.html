@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Descubriendo JPA y Hibernate - Mi Diario Tech</title>
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body class="startup-flash">
+    <nav>
+        <ul>
+            <li><a href="../index.html">Inicio</a></li>
+            <li><a href="../about.html">Sobre Mí</a></li>
+            <li><a href="../blog.html">Entradas</a></li>
+            <li><a href="../contact.html">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <div class="titlebar">
+            <span>Entrada del Diario - JPA & Hibernate</span>
+            <div class="window-controls">
+                <div class="window-btn">_</div>
+                <div class="window-btn">□</div>
+                <div class="window-btn">×</div>
+            </div>
+        </div>
+        <h1>Descubriendo JPA y Hibernate</h1>
+        <p><strong>Fecha:</strong> 3 de Febrero, 2024</p>
+        <img src="https://media.giphy.com/media/3o7TKz9bX9Z8h9Z8h9/giphy.gif" alt="Database Programming" width="300" height="200" style="border: 2px solid #000;">
+    </header>
+
+    <main>
+        <section class="posts">
+            <div class="titlebar">Mi Aventura con la Persistencia de Datos</div>
+            <div class="posts-content">
+                <div class="content-area">
+                    <h2>¡Las anotaciones me están volando la cabeza! 🤯</h2>
+                    <p>Hoy fue uno de esos días donde sientes que tu cerebro se expande. Después de semanas luchando con JDBC y SQL puro, descubrí JPA (Java Persistence API) y Hibernate. ¡Es como magia!</p>
+                    
+                    <p><strong>Lo que me impresionó más:</strong></p>
+                    <ul>
+                        <li>@Entity convierte una clase Java en una tabla de base de datos</li>
+                        <li>@Id marca el campo como clave primaria automáticamente</li>
+                        <li>@GeneratedValue hace que los IDs se generen solos</li>
+                        <li>Ya no tengo que escribir SQL manualmente para operaciones básicas</li>
+                    </ul>
+
+                    <p>Mi primera entidad:</p>
+                    <div style="background: #f0f0f0; border: 1px inset #c0c0c0; padding: 10px; font-family: monospace;">
+                        @Entity<br>
+                        @Table(name = "usuarios")<br>
+                        public class Usuario {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;@Id<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;@GeneratedValue(strategy = GenerationType.IDENTITY)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;private Long id;<br><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;@Column(name = "nombre")<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;private String nombre;<br><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;@Column(name = "email")<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;private String email;<br><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;// getters y setters...<br>
+                        }
+                    </div>
+
+                    <p>¡Y con esto Hibernate automáticamente crea la tabla en la base de datos! No puedo creer lo simple que es comparado con crear tablas manualmente.</p>
+
+                    <p><strong>Mi momento "¡Eureka!" del día:</strong> Cuando me di cuenta de que puedo hacer consultas usando el nombre de los atributos de la clase en lugar de los nombres de las columnas de la base de datos. El EntityManager es increíble:</p>
+
+                    <div style="background: #f0f0f0; border: 1px inset #c0c0c0; padding: 10px; font-family: monospace;">
+                        // En lugar de "SELECT * FROM usuarios WHERE email = ?"<br>
+                        Usuario usuario = em.createQuery(<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;"SELECT u FROM Usuario u WHERE u.email = :email", Usuario.class)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;.setParameter("email", "test@example.com")<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;.getSingleResult();
+                    </div>
+
+                    <p><strong>Desafíos que enfrenté:</strong></p>
+                    <ul>
+                        <li>Configurar el persistence.xml correctamente (¡qué dolor de cabeza!)</li>
+                        <li>Entender el ciclo de vida de las entidades</li>
+                        <li>Los lazy loading vs eager loading me confundieron al principio</li>
+                    </ul>
+
+                    <p><strong>Reflexión:</strong> JPA no es solo una herramienta, es un cambio de paradigma. Ahora pienso en objetos que se persisten, no en tablas y filas. Es como si hubiera descubierto un superpoder.</p>
+
+                    <p><em>Mañana quiero explorar las relaciones @OneToMany y @ManyToOne. ¡Esto se pone cada vez más interesante!</em></p>
+                </div>
+            </div>
+            <div class="status-bar">Estado: Completado | Tiempo de lectura: 5 min | Categoría: JPA/Hibernate</div>
+        </section>
+
+        <aside class="sidebar">
+            <div class="titlebar">Recursos</div>
+            <div class="sidebar-content">
+                <h3>Contador de Visitas</h3>
+                <div id="visit-counter">0</div>
+                <button class="retro-button" id="theme-toggle">Modo Oscuro</button>
+                <div class="content-area">
+                    <strong>Recursos útiles:</strong><br>
+                    • Documentación oficial JPA<br>
+                    • Hibernate User Guide<br>
+                    • Baeldung JPA tutorials<br>
+                    • Stack Overflow (¡mi salvavidas!)
+                </div>
+            </div>
+        </aside>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Mi Diario Tech. <a href="mailto:mi.diario.tech@gmail.com">Contáctame</a></p>
+    </footer>
+
+    <script src="../scripts/main.js"></script>
+</body>
+</html>

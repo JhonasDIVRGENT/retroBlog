@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servlets: Mi primera app web - Mi Diario Tech</title>
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body class="startup-flash">
+    <nav>
+        <ul>
+            <li><a href="../index.html">Inicio</a></li>
+            <li><a href="../about.html">Sobre Mí</a></li>
+            <li><a href="../blog.html">Entradas</a></li>
+            <li><a href="../contact.html">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <div class="titlebar">
+            <span>Entrada del Diario - Servlets</span>
+            <div class="window-controls">
+                <div class="window-btn">_</div>
+                <div class="window-btn">□</div>
+                <div class="window-btn">×</div>
+            </div>
+        </div>
+        <h1>Servlets: Mi primera aplicación web</h1>
+        <p><strong>Fecha:</strong> 20 de Febrero, 2024</p>
+        <img src="https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif" alt="Web Development" width="300" height="200" style="border: 2px solid #000;">
+    </header>
+
+    <main>
+        <section class="posts">
+            <div class="titlebar">Del Backend al Frontend: Mi Primera Web App</div>
+            <div class="posts-content">
+                <div class="content-area">
+                    <h2>¡Creé mi primer servlet y estoy emocionado! 🚀</h2>
+                    <p>Después de semanas trabajando con Java en consola, hoy di el gran salto al desarrollo web. Los servlets son increíbles: es como tener un programa Java que puede responder a peticiones HTTP. ¡El ciclo request-response finalmente tiene sentido!</p>
+                    
+                    <p><strong>Lo que aprendí sobre servlets:</strong></p>
+                    <ul>
+                        <li>Son clases Java que extienden HttpServlet</li>
+                        <li>Viven en un contenedor web (como Tomcat)</li>
+                        <li>Pueden manejar GET, POST, PUT, DELETE, etc.</li>
+                        <li>El ciclo de vida: init() → service() → destroy()</li>
+                    </ul>
+
+                    <p>Mi primer servlet (¡qué orgullo!):</p>
+                    <div style="background: #f0f0f0; border: 1px inset #c0c0c0; padding: 10px; font-family: monospace;">
+                        @WebServlet("/hola")<br>
+                        public class HolaServlet extends HttpServlet {<br><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;@Override<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;protected void doGet(HttpServletRequest request, <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HttpServletResponse response) <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throws ServletException, IOException {<br><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;response.setContentType("text/html;charset=UTF-8");<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PrintWriter out = response.getWriter();<br><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;out.println("&lt;html&gt;");<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;out.println("&lt;head&gt;&lt;title&gt;Mi Primer Servlet&lt;/title&gt;&lt;/head&gt;");<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;out.println("&lt;body&gt;");<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;out.println("&lt;h1&gt;¡Hola desde mi servlet!&lt;/h1&gt;");<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;out.println("&lt;p&gt;Fecha: " + new Date() + "&lt;/p&gt;");<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;out.println("&lt;/body&gt;&lt;/html&gt;");<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                        }
+                    </div>
+
+                    <p>Cuando vi mi página web generada dinámicamente en el navegador, casi grito de emoción. ¡Era MI código Java respondiendo a una petición HTTP!</p>
+
+                    <p><strong>Conceptos que me volaron la mente:</strong></p>
+                    <ul>
+                        <li><strong>HttpServletRequest:</strong> Toda la información de la petición del cliente</li>
+                        <li><strong>HttpServletResponse:</strong> Mi respuesta de vuelta al navegador</li>
+                        <li><strong>Session Management:</strong> Poder recordar información entre peticiones</li>
+                        <li><strong>Parámetros:</strong> Recibir datos del formulario HTML</li>
+                    </ul>
+
+                    <p>También experimenté con parámetros:</p>
+                    <div style="background: #f0f0f0; border: 1px inset #c0c0c0; padding: 10px; font-family: monospace;">
+                        String nombre = request.getParameter("nombre");<br>
+                        if (nombre != null && !nombre.isEmpty()) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;out.println("&lt;h2&gt;¡Hola " + nombre + "!&lt;/h2&gt;");<br>
+                        } else {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;out.println("&lt;h2&gt;¡Hola visitante anónimo!&lt;/h2&gt;");<br>
+                        }
+                    </div>
+
+                    <p><strong>Desafíos que enfrenté:</strong></p>
+                    <ul>
+                        <li>Configurar Tomcat correctamente (¡qué aventura!)</li>
+                        <li>Entender el web.xml vs anotaciones @WebServlet</li>
+                        <li>Debuggear cuando algo no funcionaba</li>
+                        <li>Manejar la codificación de caracteres (UTF-8 es clave)</li>
+                    </ul>
+
+                    <p><strong>Mi momento favorito:</strong> Cuando creé un formulario HTML que enviaba datos a mi servlet y este los procesaba. Ver la interacción cliente-servidor en acción fue mágico.</p>
+
+                    <p><strong>Reflexión del día:</strong> Los servlets son la base del desarrollo web en Java. Ahora entiendo mejor cómo funcionan frameworks como Spring MVC por debajo. Es como haber descubierto el motor que mueve la web.</p>
+
+                    <p><em>Próximo objetivo: Combinar servlets con JSP para separar la lógica de la presentación. ¡Y tal vez explorar un poco de JavaScript para hacer las páginas más interactivas!</em></p>
+
+                    <p><strong>Nota personal:</strong> Cada día me siento más cerca de mi sueño secreto de entender ciberseguridad web. Conocer cómo funcionan las aplicaciones web es el primer paso para saber cómo protegerlas... 🔐</p>
+                </div>
+            </div>
+            <div class="status-bar">Estado: Completado | Tiempo de lectura: 6 min | Categoría: Servlets/Web Development</div>
+        </section>
+
+        <aside class="sidebar">
+            <div class="titlebar">Herramientas de Desarrollo</div>
+            <div class="sidebar-content">
+                <h3>Contador de Visitas</h3>
+                <div id="visit-counter">0</div>
+                <button class="retro-button" id="theme-toggle">Modo Oscuro</button>
+                <div class="content-area">
+                    <strong>Mi Stack Actual:</strong><br>
+                    • Java 17<br>
+                    • Apache Tomcat 10<br>
+                    • IntelliJ IDEA<br>
+                    • Maven<br>
+                    • Git & GitHub
+                </div>
+                <div class="content-area">
+                    <strong>🔐 Pensamiento del día:</strong><br>
+                    <small>Cada servlet que creo me acerca más a entender las vulnerabilidades web como XSS y SQL injection...</small>
+                </div>
+            </div>
+        </aside>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Mi Diario Tech. <a href="mailto:mi.diario.tech@gmail.com">Contáctame</a></p>
+    </footer>
+
+    <script src="../scripts/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,453 @@
+        /* CSS Variables for Windows 98/2000s aesthetic */
+        :root {
+            --bg-color: #c0c0c0; /* Classic Windows 98 gray */
+            --text-color: #000000; /* Black text */
+            --accent-color: #0000ff; /* Classic blue */
+            --secondary-color: #008080; /* Teal */
+            --tertiary-color: #c0c0c0; /* Light gray */
+            --border-color: #808080; /* Dark gray border */
+            --shadow-color: rgba(0, 0, 0, 0.5);
+            --window-bg: #c0c0c0;
+            --button-bg: #c0c0c0;
+            --button-border-light: #ffffff;
+            --button-border-dark: #808080;
+            --titlebar-bg: linear-gradient(90deg, #0a246a 0%, #a6caf0 100%);
+            --titlebar-text: #ffffff;
+        }
+
+        .dark-mode {
+            --bg-color: #404040; /* Dark gray background */
+            --text-color: #ffffff; /* White text */
+            --accent-color: #00ffff; /* Cyan */
+            --secondary-color: #ff00ff; /* Magenta */
+            --tertiary-color: #606060; /* Medium gray */
+            --border-color: #808080;
+            --shadow-color: rgba(255, 255, 255, 0.3);
+            --window-bg: #404040;
+            --button-bg: #606060;
+            --button-border-light: #c0c0c0;
+            --button-border-dark: #000000;
+            --titlebar-bg: linear-gradient(90deg, #2d2d2d 0%, #606060 100%);
+            --titlebar-text: #ffffff;
+        }
+
+        html, body {
+            font-family: 'MS Sans Serif', sans-serif; /* Windows 98 system font */
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.4;
+            height: 100vh;
+            width: 100vw;
+            overflow-x: hidden;
+            background-image:
+                /* Scanlines effect */
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 2px,
+                    rgba(255, 255, 255, 0.03) 2px,
+                    rgba(255, 255, 255, 0.03) 4px
+                ),
+                /* CRT screen effect */
+                radial-gradient(ellipse at center, rgba(0, 0, 0, 0.1) 0%, transparent 70%),
+                /* Classic Windows 98 wallpaper pattern */
+                radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+                radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 100% 4px, 100% 100%, 4px 4px, 4px 4px;
+            background-attachment: fixed;
+        }
+
+        /* Windows 98 style navigation - Larger and centered */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--titlebar-bg);
+            border-bottom: 3px solid var(--border-color);
+            box-shadow: inset -2px -2px 0px var(--button-border-dark), inset 2px 2px 0px var(--button-border-light);
+            z-index: 1000;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 20px;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            gap: 15px;
+        }
+
+        nav li {
+            margin: 0;
+        }
+
+        nav a {
+            color: var(--titlebar-text);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+            padding: 8px 16px;
+            display: block;
+            background: var(--button-bg);
+            border: 2px solid;
+            border-color: var(--button-border-light) var(--button-border-dark) var(--button-border-dark) var(--button-border-light);
+            transition: all 0.15s ease;
+            min-width: 120px;
+            text-align: center;
+            box-shadow: 2px 2px 0px var(--shadow-color);
+        }
+
+        nav a:hover {
+            background: #d4d0c8;
+            transform: translate(-1px, -1px);
+            box-shadow: 3px 3px 0px var(--shadow-color);
+        }
+
+        nav a:active {
+            border-color: var(--button-border-dark) var(--button-border-light) var(--button-border-light) var(--button-border-dark);
+            transform: translate(1px, 1px);
+            box-shadow: 1px 1px 0px var(--shadow-color);
+        }
+
+        /* Windows 98 style header */
+        header {
+            margin: 70px 20px 20px 20px;
+            background: var(--window-bg);
+            border: 3px solid;
+            border-color: var(--button-border-light) var(--button-border-dark) var(--button-border-dark) var(--button-border-light);
+            padding: 0;
+            box-shadow: 3px 3px 0px var(--shadow-color);
+        }
+
+        .titlebar {
+            background: var(--titlebar-bg);
+            color: var(--titlebar-text);
+            padding: 2px 5px;
+            font-size: 11px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .window-controls {
+            display: flex;
+            gap: 2px;
+        }
+
+        .window-btn {
+            width: 16px;
+            height: 14px;
+            background: var(--button-bg);
+            border: 1px solid;
+            border-color: var(--button-border-light) var(--button-border-dark) var(--button-border-dark) var(--button-border-light);
+            font-size: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        header h1 {
+            font-family: 'MS Sans Serif', sans-serif;
+            font-size: 16px;
+            margin: 10px;
+            color: var(--text-color);
+            font-weight: bold;
+        }
+
+        header img {
+            margin: 10px;
+            border: 1px solid var(--border-color);
+        }
+
+        /* Main content - Windows 98 window style - Fullscreen */
+        main {
+            display: flex;
+            margin: 20px;
+            gap: 20px;
+            min-height: calc(100vh - 180px);
+            align-items: stretch;
+            padding-bottom: 80px; /* Space for fixed footer */
+        }
+
+        /* Posts section - Windows 98 window */
+        .posts {
+            flex: 2;
+            background: var(--window-bg);
+            border: 2px solid;
+            border-color: var(--button-border-light) var(--button-border-dark) var(--button-border-dark) var(--button-border-light);
+            padding: 0;
+        }
+
+        .posts .titlebar {
+            background: var(--titlebar-bg);
+            color: var(--titlebar-text);
+            padding: 2px 5px;
+            font-size: 11px;
+            font-weight: bold;
+            margin: 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .posts-content {
+            padding: 10px;
+        }
+
+        .posts h2 {
+            font-family: 'MS Sans Serif', sans-serif;
+            color: var(--text-color);
+            font-size: 14px;
+            margin: 0 0 10px 0;
+            font-weight: bold;
+        }
+
+        /* Windows 98 style table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+        }
+
+        th, td {
+            border: 1px solid #c0c0c0;
+            padding: 4px 6px;
+            text-align: left;
+            font-size: 11px;
+        }
+
+        th {
+            background: #c0c0c0;
+            color: var(--text-color);
+            font-weight: bold;
+            border: 1px solid;
+            border-color: var(--button-border-light) var(--button-border-dark) var(--button-border-dark) var(--button-border-light);
+        }
+
+        .read-more {
+            color: var(--accent-color);
+            text-decoration: underline;
+            font-size: 11px;
+        }
+
+        .read-more:hover {
+            color: #ff0000;
+        }
+
+        /* Sidebar - Windows 98 window */
+        .sidebar {
+            flex: 1;
+            background: var(--window-bg);
+            border: 2px solid;
+            border-color: var(--button-border-light) var(--button-border-dark) var(--button-border-dark) var(--button-border-light);
+            padding: 0;
+            height: fit-content;
+        }
+
+        .sidebar .titlebar {
+            background: var(--titlebar-bg);
+            color: var(--titlebar-text);
+            padding: 2px 5px;
+            font-size: 11px;
+            font-weight: bold;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .sidebar-content {
+            padding: 10px;
+            text-align: center;
+        }
+
+        .sidebar h3 {
+            font-family: 'MS Sans Serif', sans-serif;
+            color: var(--text-color);
+            font-size: 12px;
+            margin: 0 0 10px 0;
+        }
+
+        #visit-counter {
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--accent-color);
+            margin: 10px 0;
+            background: #ffffff;
+            border: 1px inset var(--border-color);
+            padding: 5px;
+        }
+
+        /* Windows 98 style button */
+        .retro-button {
+            background: var(--button-bg);
+            color: var(--text-color);
+            border: 2px solid;
+            border-color: var(--button-border-light) var(--button-border-dark) var(--button-border-dark) var(--button-border-light);
+            padding: 4px 8px;
+            font-size: 11px;
+            font-family: 'MS Sans Serif', sans-serif;
+            cursor: pointer;
+            transition: all 0.1s;
+        }
+
+        .retro-button:hover {
+            background: #d4d0c8;
+        }
+
+        .retro-button:active {
+            border-color: var(--button-border-dark) var(--button-border-light) var(--button-border-light) var(--button-border-dark);
+        }
+
+        /* Footer - Windows 98 taskbar style - Full width */
+        footer {
+            background: var(--titlebar-bg);
+            color: var(--titlebar-text);
+            text-align: center;
+            padding: 8px 20px;
+            border-top: 3px solid var(--border-color);
+            margin-top: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            box-shadow: inset -2px -2px 0px var(--button-border-dark), inset 2px 2px 0px var(--button-border-light);
+            z-index: 1000;
+        }
+
+        footer a {
+            color: var(--accent-color);
+            text-decoration: underline;
+        }
+
+        footer a:hover {
+            color: #ff0000;
+        }
+
+        /* Status bar style for content */
+        .status-bar {
+            background: var(--button-bg);
+            border-top: 1px solid var(--border-color);
+            padding: 2px 5px;
+            font-size: 10px;
+            color: var(--text-color);
+        }
+
+        /* Windows 98 style content area */
+        .content-area {
+            background: #ffffff;
+            border: 1px inset var(--border-color);
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 11px;
+            line-height: 1.4;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            main {
+                flex-direction: column;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                height: auto;
+                padding: 5px;
+            }
+
+            nav {
+                height: auto;
+                position: relative;
+            }
+
+            header {
+                margin-top: 10px;
+            }
+        }
+
+        /* Windows 98 scrollbar style */
+        ::-webkit-scrollbar {
+            width: 16px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--button-bg);
+            border: 1px solid var(--border-color);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--button-bg);
+            border: 1px solid;
+            border-color: var(--button-border-light) var(--button-border-dark) var(--button-border-dark) var(--button-border-light);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #d4d0c8;
+        }
+
+        /* Additional retro effects */
+        .retro-glow {
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.3), inset 0 0 10px rgba(0, 255, 255, 0.1);
+        }
+
+        .retro-text-shadow {
+            text-shadow: 1px 1px 0px var(--shadow-color);
+        }
+
+        /* CRT screen flicker effect */
+        @keyframes flicker {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.98; }
+        }
+
+        body {
+            animation: flicker 0.15s infinite linear;
+        }
+
+        /* Windows 98 startup sound effect simulation */
+        .startup-flash {
+            animation: startup 0.5s ease-in-out;
+        }
+
+        @keyframes startup {
+            0% { opacity: 0; transform: scale(0.95); }
+            50% { opacity: 1; transform: scale(1.02); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        /* Enhanced button press effect */
+        .retro-button:active {
+            transform: translate(2px, 2px);
+            box-shadow: 0px 0px 0px var(--shadow-color);
+        }
+
+        /* Retro cursor */
+        * {
+            cursor: default;
+        }
+
+        button, a, .window-btn {
+            cursor: pointer;
+        }
+
+        /* Windows 98 style selection */
+        ::selection {
+            background: #000080;
+            color: #ffffff;
+        }
+
+        ::-moz-selection {
+            background: #000080;
+            color: #ffffff;
+        }

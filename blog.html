@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entradas del Blog - Mi Diario Tech</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body class="startup-flash">
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="about.html">Sobre Mí</a></li>
+            <li><a href="blog.html">Entradas</a></li>
+            <li><a href="contact.html">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <div class="titlebar">
+            <span>Todas las Entradas del Diario</span>
+            <div class="window-controls">
+                <div class="window-btn">_</div>
+                <div class="window-btn">□</div>
+                <div class="window-btn">×</div>
+            </div>
+        </div>
+        <h1>Mi Diario Completo de Aprendizaje</h1>
+        <img src="https://media.giphy.com/media/3o7TKz9bX9Z8h9Z8h9/giphy.gif" alt="Archivo del Blog" width="300" height="200" style="border: 2px solid #000;">
+    </header>
+
+    <main>
+        <section class="posts">
+            <div class="titlebar">Archivo de Entradas</div>
+            <div class="posts-content">
+                <h2>Todas mis aventuras tecnológicas</h2>
+                <div class="content-area">
+                    <p>Aquí encontrarás todas mis entradas organizadas cronológicamente. Cada una documenta un paso en mi viaje de aprendizaje, desde mis primeros pasos con Java hasta mis exploraciones más avanzadas.</p>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Título</th>
+                            <th>Fecha</th>
+                            <th>Categoría</th>
+                            <th>Resumen</th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Comenzando mi viaje con Java</strong></td>
+                            <td>15 Ene 2024</td>
+                            <td><span style="background: #ffff99; padding: 2px 4px; font-size: 10px;">JAVA</span></td>
+                            <td>Mi primer encuentro con Java. La JVM, "Hello World", y esa sensación de descubrir un nuevo mundo.</td>
+                            <td><a href="posts/post1.html" class="read-more">Leer más</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Descubriendo JPA y Hibernate</strong></td>
+                            <td>03 Feb 2024</td>
+                            <td><span style="background: #99ff99; padding: 2px 4px; font-size: 10px;">JPA</span></td>
+                            <td>Las anotaciones @Entity me volaron la cabeza. Persistencia de datos nunca fue tan elegante.</td>
+                            <td><a href="posts/post2.html" class="read-more">Leer más</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Servlets: Mi primera app web</strong></td>
+                            <td>20 Feb 2024</td>
+                            <td><span style="background: #99ccff; padding: 2px 4px; font-size: 10px;">WEB</span></td>
+                            <td>Del backend al frontend. Mi primer servlet y el emocionante mundo del desarrollo web.</td>
+                            <td><a href="posts/post3.html" class="read-more">Leer más</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="content-area" style="margin-top: 20px;">
+                    <h3>📊 Estadísticas del Blog</h3>
+                    <ul>
+                        <li><strong>Total de entradas:</strong> 3</li>
+                        <li><strong>Categorías:</strong> Java, JPA/Hibernate, Servlets</li>
+                        <li><strong>Tiempo total de lectura:</strong> ~14 minutos</li>
+                        <li><strong>Próxima entrada:</strong> Explorando JSP y MVC</li>
+                    </ul>
+                </div>
+
+                <div class="content-area">
+                    <h3>🔍 Buscar por Categoría</h3>
+                    <p>
+                        <button class="retro-button" onclick="filterPosts('JAVA')">Java Básico</button>
+                        <button class="retro-button" onclick="filterPosts('JPA')">JPA/Hibernate</button>
+                        <button class="retro-button" onclick="filterPosts('WEB')">Desarrollo Web</button>
+                        <button class="retro-button" onclick="filterPosts('ALL')">Mostrar Todas</button>
+                    </p>
+                </div>
+            </div>
+            <div class="status-bar">Total de entradas: 3 | Última actualización: 20 Feb 2024</div>
+        </section>
+
+        <aside class="sidebar">
+            <div class="titlebar">Navegación</div>
+            <div class="sidebar-content">
+                <h3>Contador de Visitas</h3>
+                <div id="visit-counter">0</div>
+                <button class="retro-button" id="theme-toggle">Modo Oscuro</button>
+                <div class="content-area">
+                    <strong>Entradas Populares:</strong><br>
+                    1. Servlets: Mi primera app web<br>
+                    2. Descubriendo JPA y Hibernate<br>
+                    3. Comenzando mi viaje con Java
+                </div>
+                <div class="content-area">
+                    <strong>Próximos Temas:</strong><br>
+                    • JSP y MVC<br>
+                    • Spring Framework<br>
+                    • Diseño de Sistemas<br>
+                    • 🔐 Seguridad Web
+                </div>
+                <div class="content-area">
+                    <strong>📅 Frecuencia:</strong><br>
+                    <small>Publico nuevas entradas cada vez que aprendo algo emocionante</small>
+                </div>
+            </div>
+        </aside>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Mi Diario Tech. Todos los derechos reservados. <a href="mailto:mi.diario.tech@gmail.com">Contáctame</a></p>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+    <script>
+        function filterPosts(category) {
+            const rows = document.querySelectorAll('tbody tr');
+            rows.forEach(row => {
+                if (category === 'ALL') {
+                    row.style.display = '';
+                } else {
+                    const categorySpan = row.querySelector('span');
+                    if (categorySpan && categorySpan.textContent === category) {
+                        row.style.display = '';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Diario de Aprendizaje Tech</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body class="startup-flash">
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="about.html">Sobre Mí</a></li>
+            <li><a href="blog.html">Entradas</a></li>
+            <li><a href="contact.html">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <header id="home">
+        <div class="titlebar">
+            <span>Mi Diario de Aprendizaje Tech</span>
+            <div class="window-controls">
+                <div class="window-btn">_</div>
+                <div class="window-btn">□</div>
+                <div class="window-btn">×</div>
+            </div>
+        </div>
+        <h1 class="retro-text-shadow">Bienvenido a mi diario personal de tecnología</h1>
+        <img src="https://media.giphy.com/media/SWoSkN6DxTszqIKEqv/giphy.gif" alt="Java y Tecnología" width="300" height="200" style="border: 2px solid #000;">
+    </header>
+
+    <main>
+        <section class="posts" id="posts">
+            <div class="titlebar">Últimas Entradas del Diario</div>
+            <div class="posts-content">
+                <h2>Mis Aventuras Aprendiendo Tecnología</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Título</th>
+                            <th>Fecha</th>
+                            <th>Resumen</th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Comenzando mi viaje con Java</td>
+                            <td>2024-01-15</td>
+                            <td>Hoy empecé a estudiar Java. Es fascinante cómo funciona la JVM...</td>
+                            <td><a href="posts/post1.html" class="read-more">Leer más</a></td>
+                        </tr>
+                        <tr>
+                            <td>Descubriendo JPA y Hibernate</td>
+                            <td>2024-02-03</td>
+                            <td>Las anotaciones @Entity me están volando la cabeza. Persistencia nunca fue tan fácil.</td>
+                            <td><a href="posts/post2.html" class="read-more">Leer más</a></td>
+                        </tr>
+                        <tr>
+                            <td>Servlets: Mi primera app web</td>
+                            <td>2024-02-20</td>
+                            <td>Creé mi primer servlet hoy. El ciclo de vida request-response es increíble.</td>
+                            <td><a href="posts/post3.html" class="read-more">Leer más</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="status-bar">Estado: Aprendiendo activamente | Próximo tema: Diseño de Sistemas</div>
+        </section>
+
+        <aside class="sidebar">
+            <div class="titlebar">Panel de Control</div>
+            <div class="sidebar-content">
+                <h3>Contador de Visitas</h3>
+                <div id="visit-counter" class="retro-glow">0</div>
+                <button class="retro-button" id="theme-toggle">Modo Oscuro</button>
+                <div class="content-area">
+                    <strong>Mi Pasión Secreta:</strong><br>
+                    🔐 Ciberseguridad<br>
+                    <small>Explorando el mundo del hacking ético</small>
+                </div>
+            </div>
+        </aside>
+    </main>
+
+    <footer id="contact">
+        <p>&copy; 2024 Mi Diario Tech. Todos los derechos reservados. <a href="mailto:mi.diario.tech@gmail.com">Contáctame</a></p>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+</body>
+</html>
